@@ -1,13 +1,21 @@
-import express from "express";
 //* This is an object that gives you access to lots of props and methods
-// const express = require("express");
+import express from "express";
+//* logger
+import morgan from "morgan";
 
 //* We want to use it as a function to create our Express application
 const app = express();
 
-//* Install JSON preprocessor
-// Preprocesses the request data and writes it into 'request.body'
+//*** INSTALL EXPRESS MIDDLEWARE ***
+
+//* JSON preprocessor
+//  - Preprocesses the request data and writes it into 'request.body'
 app.use(express.json());
+//* morgan logger
+//  - Logs request data to the terminal ('format' arg)
+app.use(morgan("dev"));
+
+// *********************************
 
 app.get("/", (request, response) => {
   response.send("Hello, World");

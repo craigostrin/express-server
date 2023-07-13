@@ -18,3 +18,4 @@
 8. add `"type": "module"` to package.json
 9. yarn add --dev nodemon
    * Add `"dev": "nodemon src/index.js"` to package.json scripts
+10. yarn add morgan
