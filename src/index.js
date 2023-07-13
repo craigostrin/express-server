@@ -5,8 +5,7 @@ import express from "express";
 //* We want to use it as a function to create our Express application
 const app = express();
 
-app.get("/", () => (request, response) => {
-  console.log("here");
+app.get("/", (request, response) => {
   response.send("Hello, World");
 });
 
