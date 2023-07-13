@@ -1,5 +1,6 @@
+import express from "express";
 //* This is an object that gives you access to lots of props and methods
-const express = require("express");
+// const express = require("express");
 
 //* We want to use it as a function to create our Express application
 const app = express();
