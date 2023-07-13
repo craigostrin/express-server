@@ -5,8 +5,24 @@ import express from "express";
 //* We want to use it as a function to create our Express application
 const app = express();
 
+//* Install JSON preprocessor
+// Preprocesses the request data and writes it into 'request.body'
+app.use(express.json());
+
 app.get("/", (request, response) => {
   response.send("Hello, World");
+});
+
+app.get("/users", (req, res) => {
+  res.json([{ name: "Goku" }, { name: "Gohan" }, { name: "Vegeta" }]);
+});
+
+app.post("/users", (req, res) => {
+  let newUser = req.body;
+  res.status(201).json({
+    message: "User created.",
+    entry: newUser,
+  });
 });
 
 //* Without this, 'yarn start' will run the code once and finish
@@ -21,3 +37,4 @@ app.listen(3000, () => {
 //    declare app.\method\
 //    - app.get(endpoint, callback(request, response) )
 //    - app.post(endpoint, (request, response) => {} ) etc
+//  - Send JSON by using response.json()
